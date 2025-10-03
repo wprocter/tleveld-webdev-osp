@@ -1,18 +1,151 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CSS Layout & Styling</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="../assets/css/site.css" rel="stylesheet">
+  <link href="../assets/css/site.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="container py-5">
-    <a href="../index.html">← Back to course hub</a>
-    <h1 class="mt-3">CSS Layout & Styling</h1>
-    <p>Box model, Flexbox, Grid, responsive breakpoints and best practices.</p>
+<body class="lesson-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header text-white py-3">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="site-brand h5 mb-0 fw-semibold">T-Level Web Dev</span>
+        <nav class="site-nav small fw-medium">
+          <a href="../index.html">Home</a>
+          <a class="active" href="css.html">Lessons</a>
+          <a href="../osp/index.html">OSP</a>
+          <a href="../exercises/index.html">Exercises</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="lesson-hero gradient-soft-bg text-white">
+    <div class="container position-relative">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="display-6 fw-bold mb-3 gradient-text">CSS Layout & Styling</h1>
+          <p class="lead mb-4">Master the visual layer: the cascade, box model, modern layout systems and responsive strategy.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="pill pill-blue"><i class="fa-solid fa-border-all me-1"></i> Layout</span>
+            <span class="pill pill-green"><i class="fa-solid fa-layer-group me-1"></i> Cascade</span>
+            <span class="pill pill-pink"><i class="fa-solid fa-grid-2 me-1"></i> Grid</span>
+            <span class="pill pill-accent"><i class="fa-solid fa-arrows-left-right-to-line me-1"></i> Flex</span>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="hero-illustration">
+            <div class="code-card shadow-sm">
+<pre><code>.container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container py-5" id="main">
+    <div class="row g-5">
+      <aside class="col-xl-3 order-xl-2">
+        <nav class="toc small" aria-label="On this page">
+          <h6 class="text-uppercase fw-bold mb-3 opacity-75">Contents</h6>
+          <ol class="list-unstyled m-0 toc-list">
+            <li><a href="#cascade">Cascade & Specificity</a></li>
+            <li><a href="#box-model">Box Model</a></li>
+            <li><a href="#flexbox">Flexbox</a></li>
+            <li><a href="#grid">CSS Grid</a></li>
+            <li><a href="#responsive">Responsive Design</a></li>
+            <li><a href="#best-practices">Best Practices</a></li>
+          </ol>
+        </nav>
+      </aside>
+      <main class="col-xl-9 order-xl-1 lesson-content">
+        <section id="cascade" class="mb-5">
+          <h2 class="section-heading fancy-underline">1. Cascade & Specificity</h2>
+          <p>Understanding how the browser decides which rule wins is essential. Origin, importance, specificity and order all matter.</p>
+          <div class="code-block mb-3"><pre><code>/* Specificity examples */
+#banner span { color: hotpink; }
+.card span { color: teal; }
+span { color: gray; }</code></pre></div>
+          <div class="callout callout-blue"><strong>Tip:</strong> Avoid over-specific selectors; keep them short and purposeful.</div>
+        </section>
+
+        <section id="box-model" class="mb-5">
+          <h2 class="section-heading fancy-underline">2. Box Model</h2>
+          <p>Every element is a rectangle composed of <em>content</em>, <em>padding</em>, <em>border</em>, and <em>margin</em>. The <code>box-sizing</code> property changes how width/height are calculated.</p>
+          <div class="code-block mb-3"><pre><code>* { box-sizing: border-box; }
+.card { padding:1rem; border:1px solid #333; }</code></pre></div>
+          <div class="callout callout-green"><strong>Checklist:</strong> Using <code>box-sizing:border-box</code> globally reduces layout headaches.</div>
+        </section>
+
+        <section id="flexbox" class="mb-5">
+          <h2 class="section-heading fancy-underline">3. Flexbox</h2>
+          <p>Flexbox excels at one-dimensional alignment (rows OR columns), distributing space and centering with minimal code.</p>
+          <div class="code-block mb-3"><pre><code>.toolbar {
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+}</code></pre></div>
+          <div class="callout callout-accent"><strong>Remember:</strong> Use <code>flex:1</code> to let items grow; combine with <code>min-width</code> to avoid squashing.</div>
+        </section>
+
+        <section id="grid" class="mb-5">
+          <h2 class="section-heading fancy-underline">4. CSS Grid</h2>
+          <p>Grid provides true two-dimensional layout with explicit and implicit tracks. Define rows/columns and place items deliberately.</p>
+          <div class="code-block mb-3"><pre><code>.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1rem;
+}</code></pre></div>
+          <div class="callout callout-blue"><strong>Tip:</strong> Use <code>minmax()</code> with <code>auto-fit</code> or <code>auto-fill</code> for fluid responsive grids.</div>
+        </section>
+
+        <section id="responsive" class="mb-5">
+          <h2 class="section-heading fancy-underline">5. Responsive Design</h2>
+          <p>Use relative units, fluid grids, and media queries to adapt layout across breakpoints.</p>
+          <div class="code-block mb-3"><pre><code>@media (min-width: 768px){
+  .sidebar { display:block; }
+}</code></pre></div>
+          <div class="callout callout-green"><strong>Checklist:</strong> Test at narrow, medium and very wide widths; watch for orphaned content or overflow.</div>
+        </section>
+
+        <section id="best-practices" class="mb-4">
+          <h2 class="section-heading fancy-underline">6. Best Practices</h2>
+          <ul class="checklist">
+            <li><i class="fa-solid fa-check"></i> Keep selectors shallow & modular.</li>
+            <li><i class="fa-solid fa-check"></i> Favour layout systems (Flex/Grid) over absolute positioning.</li>
+            <li><i class="fa-solid fa-check"></i> Reuse custom properties for consistency.</li>
+            <li><i class="fa-solid fa-check"></i> Audit contrast and tap targets.</li>
+            <li><i class="fa-solid fa-check"></i> Remove unused CSS regularly.</li>
+          </ul>
+        </section>
+        <div class="mt-5 d-flex flex-wrap gap-3">
+          <a class="btn btn-secondary" href="html.html"><i class="fa-solid fa-arrow-left"></i> HTML</a>
+          <a class="btn btn-outline-gradient" href="js.html">Next: JavaScript →</a>
+          <a class="btn btn-secondary" href="../index.html"><i class="fa-solid fa-house"></i> Hub</a>
+        </div>
+      </main>
+    </div>
   </div>
+
+  <footer class="site-footer py-4 mt-auto small">
+    <div class="container text-center opacity-75">&copy; 2025 T-Level Web Dev — Learning Path</div>
+  </footer>
+
+  <script>
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    const sections = [...tocLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const activate = id => tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) activate(e.target.id); }), { rootMargin:'0px 0px -60%', threshold:.2 });
+    sections.forEach(s => observer.observe(s));
+  </script>
 </body>
 </html>

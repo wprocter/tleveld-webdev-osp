@@ -1,17 +1,134 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bootstrap & Components</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="../assets/css/site.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="../assets/css/site.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="container py-5">
-    <a href="../index.html">← Back to course hub</a>
-    <h1 class="mt-3">Bootstrap & Components</h1>
-    <p>Using Bootstrap grid, components and utilities to speed up development.</p>
+<body class="lesson-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header text-white py-3">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="site-brand h5 mb-0 fw-semibold">T-Level Web Dev</span>
+        <nav class="site-nav small fw-medium">
+          <a href="../index.html">Home</a>
+          <a class="active" href="bootstrap.html">Lessons</a>
+          <a href="../osp/index.html">OSP</a>
+          <a href="../exercises/index.html">Exercises</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="lesson-hero gradient-soft-bg text-white">
+    <div class="container position-relative">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="display-6 fw-bold mb-3 gradient-text">Bootstrap & Components</h1>
+          <p class="lead mb-4">Accelerate UI production with the Bootstrap grid, utilities, and accessible pre-built components.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="pill pill-blue"><i class="fa-solid fa-table-cells-large me-1"></i> Grid</span>
+            <span class="pill pill-accent"><i class="fa-solid fa-wand-magic-sparkles me-1"></i> Utilities</span>
+            <span class="pill pill-green"><i class="fa-solid fa-shield-halved me-1"></i> A11y</span>
+            <span class="pill pill-pink"><i class="fa-solid fa-layer-group me-1"></i> Components</span>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="hero-illustration">
+            <div class="code-card shadow-sm">
+<pre><code>&lt;div class="row g-3"&gt;
+  &lt;div class="col-md-6"&gt;Card&lt;/div&gt;
+  &lt;div class="col-md-6"&gt;Card&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container py-5" id="main">
+    <div class="row g-5">
+      <aside class="col-xl-3 order-xl-2">
+        <nav class="toc small" aria-label="On this page">
+          <h6 class="text-uppercase fw-bold mb-3 opacity-75">Contents</h6>
+          <ol class="list-unstyled m-0 toc-list">
+            <li><a href="#why-bootstrap">Why Bootstrap</a></li>
+            <li><a href="#grid">Grid System</a></li>
+            <li><a href="#utilities">Utility Classes</a></li>
+            <li><a href="#components">Core Components</a></li>
+            <li><a href="#customisation">Customisation</a></li>
+            <li><a href="#integration">Integration Tips</a></li>
+          </ol>
+        </nav>
+      </aside>
+      <main class="col-xl-9 order-xl-1 lesson-content">
+        <section id="why-bootstrap" class="mb-5">
+          <h2 class="section-heading fancy-underline">1. Why Bootstrap</h2>
+          <p>Bootstrap provides a consistent design system, responsive grid and pre-styled components reducing development time.</p>
+          <div class="callout callout-blue"><strong>Tip:</strong> Understand the underlying CSS; don't rely blindly on classes.</div>
+        </section>
+        <section id="grid" class="mb-5">
+          <h2 class="section-heading fancy-underline">2. Grid System</h2>
+          <p>The grid uses containers, rows and columns. Breakpoints adapt column stacking.</p>
+          <div class="code-block mb-3"><pre><code>&lt;div class="row"&gt;
+  &lt;div class="col-12 col-md-6"&gt;Left&lt;/div&gt;
+  &lt;div class="col-12 col-md-6"&gt;Right&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+          <div class="callout callout-green"><strong>Checklist:</strong> Use <code>.g-*</code> classes to manage gutters consistently.</div>
+        </section>
+        <section id="utilities" class="mb-5">
+          <h2 class="section-heading fancy-underline">3. Utility Classes</h2>
+          <p>Utilities offer single-purpose helpers (spacing, display, flex, colours) enabling rapid iteration without writing custom CSS.</p>
+          <div class="code-block mb-3"><pre><code>&lt;div class="d-flex align-items-center justify-content-between gap-3"&gt;...&lt;/div&gt;</code></pre></div>
+          <div class="callout callout-accent"><strong>Remember:</strong> Avoid utility bloat by refactoring repeated chains into a class.</div>
+        </section>
+        <section id="components" class="mb-5">
+          <h2 class="section-heading fancy-underline">4. Core Components</h2>
+          <p>Alerts, modals, navbars, cards and forms provide accessible building blocks. Initialise JS components via data attributes or the API.</p>
+          <div class="code-block mb-3"><pre><code>&lt;button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#demo"&gt;Open&lt;/button&gt;</code></pre></div>
+          <div class="callout callout-blue"><strong>Tip:</strong> Keep custom overrides minimal to ease framework updates.</div>
+        </section>
+        <section id="customisation" class="mb-5">
+          <h2 class="section-heading fancy-underline">5. Customisation</h2>
+          <p>Override Sass variables or use CSS custom properties for themes. Remove unused components for lean bundles.</p>
+          <div class="code-block mb-3"><pre><code>$primary: #ff6a3d;
+@import "bootstrap";</code></pre></div>
+          <div class="callout callout-green"><strong>Checklist:</strong> Always document design tokens when theming.</div>
+        </section>
+        <section id="integration" class="mb-4">
+          <h2 class="section-heading fancy-underline">6. Integration Tips</h2>
+          <ul class="checklist">
+            <li><i class="fa-solid fa-check"></i> Load CSS early; bundle/minify in production.</li>
+            <li><i class="fa-solid fa-check"></i> Defer or bundle JS; only include needed plugins.</li>
+            <li><i class="fa-solid fa-check"></i> Keep custom CSS scoped.</li>
+            <li><i class="fa-solid fa-check"></i> Use accessible markup patterns.</li>
+            <li><i class="fa-solid fa-check"></i> Test components with keyboard and screen reader.</li>
+          </ul>
+        </section>
+        <div class="mt-5 d-flex flex-wrap gap-3">
+          <a class="btn btn-secondary" href="js.html"><i class="fa-solid fa-arrow-left"></i> JavaScript</a>
+          <a class="btn btn-outline-gradient" href="php-mysql.html">Next: PHP & MySQL →</a>
+          <a class="btn btn-secondary" href="../index.html"><i class="fa-solid fa-house"></i> Hub</a>
+        </div>
+      </main>
+    </div>
   </div>
+
+  <footer class="site-footer py-4 mt-auto small">
+    <div class="container text-center opacity-75">&copy; 2025 T-Level Web Dev — Learning Path</div>
+  </footer>
+
+  <script>
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    const sections = [...tocLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const activate = id => tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) activate(e.target.id); }), { rootMargin:'0px 0px -60%', threshold:.2 });
+    sections.forEach(s => observer.observe(s));
+  </script>
 </body>
 </html>

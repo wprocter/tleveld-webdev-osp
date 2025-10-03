@@ -1,26 +1,189 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HTML Fundamentals</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="../assets/css/site.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="../assets/css/site.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="container py-5">
-    <a href="../index.html">← Back to course hub</a>
-    <h1 class="mt-3">HTML Fundamentals</h1>
-    <p>Intro to semantic HTML, structure, forms and accessibility.</p>
+<body class="lesson-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header text-white py-3">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="site-brand h5 mb-0 fw-semibold">T-Level Web Dev</span>
+        <nav class="site-nav small fw-medium">
+          <a href="../index.html">Home</a>
+          <a class="active" href="html.html">Lessons</a>
+          <a href="../osp/index.html">OSP</a>
+          <a href="../exercises/index.html">Exercises</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-    <h2>Lesson content</h2>
-    <ul>
-      <li>Document structure & semantic elements</li>
-      <li>Headings, paragraphs, lists</li>
-      <li>Forms and inputs</li>
-      <li>Accessibility basics (alt, labels, landmarks)</li>
-    </ul>
+  <section class="lesson-hero gradient-soft-bg text-white">
+    <div class="container position-relative">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="display-6 fw-bold mb-3 gradient-text">HTML Fundamentals</h1>
+          <p class="lead mb-4">Structure the web with meaning: semantic tags, accessible content and clean document flow.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="pill pill-green"><i class="fa-solid fa-leaf me-1"></i> Semantic</span>
+            <span class="pill pill-blue"><i class="fa-solid fa-cubes-stacked me-1"></i> Structure</span>
+            <span class="pill pill-pink"><i class="fa-solid fa-universal-access me-1"></i> A11y</span>
+            <span class="pill pill-accent"><i class="fa-solid fa-gear me-1"></i> Forms</span>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="hero-illustration">
+            <div class="code-card shadow-sm">
+<pre><code>&lt;header&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h1&gt;Accessible HTML&lt;/h1&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container py-5" id="main">
+    <div class="row g-5">
+      <aside class="col-xl-3 order-xl-2">
+        <nav class="toc small" aria-label="On this page">
+          <h6 class="text-uppercase fw-bold mb-3 opacity-75">Contents</h6>
+          <ol class="list-unstyled m-0 toc-list">
+            <li><a href="#doc-structure">Document Structure</a></li>
+            <li><a href="#semantic-tags">Semantic Tags</a></li>
+            <li><a href="#text-elements">Text Elements</a></li>
+            <li><a href="#forms">Forms</a></li>
+            <li><a href="#accessibility">Accessibility</a></li>
+          </ol>
+        </nav>
+      </aside>
+      <main class="col-xl-9 order-xl-1 lesson-content">
+        <section id="doc-structure" class="mb-5">
+          <h2 class="section-heading fancy-underline">1. Document Structure</h2>
+          <p>The HTML document begins with a doctype and an <code>&lt;html&gt;</code> element that wraps the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code>. The head contains metadata; the body contains what users see and interact with.</p>
+          <div class="code-block mb-3">
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+          <div class="callout callout-blue"><strong>Tip:</strong> Always set the <code>lang</code> attribute; it helps screen readers pick correct pronunciation rules.</div>
+        </section>
+
+        <section id="semantic-tags" class="mb-5">
+          <h2 class="section-heading fancy-underline">2. Semantic Tags</h2>
+          <p>Semantic elements express meaning (purpose) rather than presentation. This aids accessibility, SEO, and maintainability.</p>
+          <div class="row g-3">
+            <div class="col-sm-6 col-lg-4">
+              <div class="topic-card">
+                <h5><code>&lt;header&gt;</code></h5>
+                <p class="small mb-0">Intro or top section of a page/section.</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="topic-card">
+                <h5><code>&lt;nav&gt;</code></h5>
+                <p class="small mb-0">Primary navigation landmarks.</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="topic-card">
+                <h5><code>&lt;main&gt;</code></h5>
+                <p class="small mb-0">Unique main content of the page.</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="topic-card">
+                <h5><code>&lt;article&gt;</code></h5>
+                <p class="small mb-0">Self-contained composition (blog, card).</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="topic-card">
+                <h5><code>&lt;section&gt;</code></h5>
+                <p class="small mb-0">Thematic grouping of content.</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="topic-card">
+                <h5><code>&lt;aside&gt;</code></h5>
+                <p class="small mb-0">Tangential / complementary content.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="text-elements" class="mb-5">
+          <h2 class="section-heading fancy-underline">3. Text Elements</h2>
+          <p>Headings create an outline (never skip levels for style). Lists group related items, and inline elements like <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> convey meaning, not appearance.</p>
+          <div class="callout callout-green"><strong>Checklist:</strong> Is your heading order logical? Are lists used instead of repeated <code>&lt;br&gt;</code>? Are emphasised words meaningful?</div>
+        </section>
+
+        <section id="forms" class="mb-5">
+          <h2 class="section-heading fancy-underline">4. Forms</h2>
+          <p>Forms collect user input with accessible labels and clear grouping.</p>
+          <div class="code-block mb-3">
+<pre><code>&lt;form action="/subscribe" method="post"&gt;
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" name="email" type="email" required /&gt;
+  &lt;button class="btn btn-accent"&gt;Join&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+          </div>
+          <div class="callout callout-accent"><strong>Remember:</strong> Use <code>type="email"</code>, <code>required</code>, and proper labels to reduce errors and boost usability.</div>
+        </section>
+
+        <section id="accessibility" class="mb-4">
+          <h2 class="section-heading fancy-underline">5. Accessibility Essentials</h2>
+          <ul class="checklist">
+            <li><i class="fa-solid fa-check"></i> Provide <code>alt</code> text for informative images.</li>
+            <li><i class="fa-solid fa-check"></i> Use labels and/or <code>aria-labelledby</code> for interactive controls.</li>
+            <li><i class="fa-solid fa-check"></i> Ensure sufficient colour contrast (AA minimum).</li>
+            <li><i class="fa-solid fa-check"></i> Logical heading hierarchy.</li>
+            <li><i class="fa-solid fa-check"></i> Keyboard focus visible.</li>
+          </ul>
+        </section>
+        <div class="mt-5 d-flex flex-wrap gap-3">
+          <a class="btn btn-secondary" href="../index.html"><i class="fa-solid fa-house"></i> Hub</a>
+          <a class="btn btn-outline-gradient float-end" href="css.html">Next: CSS Foundations →</a>
+          
+        </div>
+      </main>
+    </div>
   </div>
+
+  <footer class="site-footer py-4 mt-auto small">
+    <div class="container text-center opacity-75">&copy; 2025 T-Level Web Dev — Learning Path</div>
+  </footer>
+
+  <script>
+    // Simple scroll spy for TOC highlighting
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    const sections = [...tocLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const activate = (id) => {
+      tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+    };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ activate(e.target.id); } });
+    }, { rootMargin: '0px 0px -60%', threshold: .2 });
+    sections.forEach(s => observer.observe(s));
+  </script>
 </body>
 </html>

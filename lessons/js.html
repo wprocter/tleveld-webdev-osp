@@ -1,18 +1,151 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JavaScript Essentials</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="../assets/css/site.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="../assets/css/site.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="container py-5">
-    <a href="../index.html">← Back to course hub</a>
-    <h1 class="mt-3">JavaScript Essentials</h1>
-    <p>Variables, DOM manipulation, events, fetch and async programming.</p>
+<body class="lesson-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header text-white py-3">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="site-brand h5 mb-0 fw-semibold">T-Level Web Dev</span>
+        <nav class="site-nav small fw-medium">
+          <a href="../index.html">Home</a>
+          <a class="active" href="js.html">Lessons</a>
+          <a href="../osp/index.html">OSP</a>
+          <a href="../exercises/index.html">Exercises</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="lesson-hero gradient-soft-bg text-white">
+    <div class="container position-relative">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="display-6 fw-bold mb-3 gradient-text">JavaScript Essentials</h1>
+          <p class="lead mb-4">Bring interactivity to the web: data, DOM APIs, events, asynchronous flows.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="pill pill-accent"><i class="fa-solid fa-code me-1"></i> Syntax</span>
+            <span class="pill pill-blue"><i class="fa-solid fa-bolt me-1"></i> Events</span>
+            <span class="pill pill-green"><i class="fa-solid fa-database me-1"></i> Fetch</span>
+            <span class="pill pill-pink"><i class="fa-solid fa-arrows-rotate me-1"></i> Async</span>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="hero-illustration">
+            <div class="code-card shadow-sm">
+<pre><code>const btn = document.querySelector('button');
+btn.addEventListener('click', async () => {
+  const res = await fetch('/api');
+  console.log(await res.json());
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container py-5" id="main">
+    <div class="row g-5">
+      <aside class="col-xl-3 order-xl-2">
+        <nav class="toc small" aria-label="On this page">
+          <h6 class="text-uppercase fw-bold mb-3 opacity-75">Contents</h6>
+          <ol class="list-unstyled m-0 toc-list">
+            <li><a href="#variables">Variables & Types</a></li>
+            <li><a href="#dom">DOM Manipulation</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#fetch">Fetch & JSON</a></li>
+            <li><a href="#async">Async / Await</a></li>
+            <li><a href="#good-practices">Good Practices</a></li>
+          </ol>
+        </nav>
+      </aside>
+      <main class="col-xl-9 order-xl-1 lesson-content">
+        <section id="variables" class="mb-5">
+          <h2 class="section-heading fancy-underline">1. Variables & Types</h2>
+          <p>Use <code>const</code> for values that shouldn't be reassigned, <code>let</code> for reassignable bindings. Primitive types include string, number, boolean, null, undefined, symbol, bigint.</p>
+          <div class="code-block mb-3"><pre><code>const name = 'Ada';
+let count = 0;
+count++;</code></pre></div>
+          <div class="callout callout-blue"><strong>Tip:</strong> Prefer <code>const</code> by default; it signals intent.</div>
+        </section>
+
+        <section id="dom" class="mb-5">
+          <h2 class="section-heading fancy-underline">2. DOM Manipulation</h2>
+          <p>The Document Object Model represents the page so scripts can change structure, style, and content.</p>
+          <div class="code-block mb-3"><pre><code>const list = document.querySelector('#tasks');
+list.insertAdjacentHTML('beforeend', '<li>New Task</li>');</code></pre></div>
+          <div class="callout callout-green"><strong>Checklist:</strong> Cache selectors; avoid unnecessary reflows.</div>
+        </section>
+
+        <section id="events" class="mb-5">
+          <h2 class="section-heading fancy-underline">3. Events</h2>
+          <p>Events are signals from the browser or user. Event delegation improves performance by listening high in the tree.</p>
+          <div class="code-block mb-3"><pre><code>document.addEventListener('click', e => {
+  if(e.target.matches('.delete')) removeItem(e.target);
+});</code></pre></div>
+          <div class="callout callout-accent"><strong>Remember:</strong> Remove listeners for long-lived single-page sessions when not needed.</div>
+        </section>
+
+        <section id="fetch" class="mb-5">
+          <h2 class="section-heading fancy-underline">4. Fetch & JSON</h2>
+          <p>The Fetch API returns promises for HTTP requests. Always handle errors and unexpected statuses.</p>
+          <div class="code-block mb-3"><pre><code>try {
+  const res = await fetch('/data');
+  if(!res.ok) throw new Error(res.status);
+  const data = await res.json();
+} catch(err){
+  console.error(err);
+}</code></pre></div>
+          <div class="callout callout-blue"><strong>Tip:</strong> Use <code>AbortController</code> to cancel slow requests.</div>
+        </section>
+
+        <section id="async" class="mb-5">
+          <h2 class="section-heading fancy-underline">5. Async / Await</h2>
+          <p><code>async</code> functions return promises; <code>await</code> pauses until a promise settles, making asynchronous code read linearly.</p>
+          <div class="code-block mb-3"><pre><code>async function load(){
+  const res = await fetch('/api/time');
+  return res.json();
+}</code></pre></div>
+          <div class="callout callout-green"><strong>Checklist:</strong> Wrap awaits in try/catch to handle rejection paths.</div>
+        </section>
+
+        <section id="good-practices" class="mb-4">
+          <h2 class="section-heading fancy-underline">6. Good Practices</h2>
+          <ul class="checklist">
+            <li><i class="fa-solid fa-check"></i> Limit global variables.</li>
+            <li><i class="fa-solid fa-check"></i> Keep functions small & focused.</li>
+            <li><i class="fa-solid fa-check"></i> Use strict equality (<code>===</code>).</li>
+            <li><i class="fa-solid fa-check"></i> Handle errors (try/catch / .catch()).</li>
+            <li><i class="fa-solid fa-check"></i> Profile performance for hot paths.</li>
+          </ul>
+        </section>
+        <div class="mt-5 d-flex flex-wrap gap-3">
+          <a class="btn btn-secondary" href="css.html"><i class="fa-solid fa-arrow-left"></i> CSS</a>
+          <a class="btn btn-outline-gradient" href="bootstrap.html">Next: Bootstrap →</a>
+          <a class="btn btn-secondary" href="../index.html"><i class="fa-solid fa-house"></i> Hub</a>
+        </div>
+      </main>
+    </div>
   </div>
+
+  <footer class="site-footer py-4 mt-auto small">
+    <div class="container text-center opacity-75">&copy; 2025 T-Level Web Dev — Learning Path</div>
+  </footer>
+
+  <script>
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    const sections = [...tocLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const activate = id => tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) activate(e.target.id); }), { rootMargin:'0px 0px -60%', threshold:.2 });
+    sections.forEach(s => observer.observe(s));
+  </script>
 </body>
 </html>

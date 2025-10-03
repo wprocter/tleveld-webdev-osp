@@ -8,25 +8,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="assets/css/site.css" rel="stylesheet">
 </head>
-<body>
-  <header class="bg-primary text-white py-4 mb-4">
+<body class="home">
+  <header class="site-header text-white py-3">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-        <h1 class="h3 mb-0">T-Level Web Dev</h1>
-        <nav>
-          <a class="text-white me-3" href="index.html">Home</a>
-          <a class="text-white me-3" href="lessons/html.html">Lessons</a>
-          <a class="text-white me-3" href="osp/index.html">OSP</a>
-          <a class="text-white" href="exercises/index.html">Exercises</a>
+        <span class="site-brand h3 mb-0 fw-semibold">T-Level Web Dev</span>
+        <nav class="site-nav small fw-medium">
+          <a class="nav-link-home active" href="index.html">Home</a>
+          <a href="lessons/html.html">Lessons</a>
+          <a href="osp/index.html">OSP</a>
+          <a href="exercises/index.html">Exercises</a>
         </nav>
       </div>
     </div>
   </header>
-  <main class="container mb-5">
+
+  <section class="hero-intro text-white">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container position-relative">
+      <div class="col-lg-8 col-xl-7">
+        <h1 class="display-5 fw-bold gradient-text mb-3">Build the Modern Web</h1>
+        <p class="lead pe-lg-5">Code. Design. Deploy. Your hub for lessons, exercises and the full Occupational Set Project journey — now with a splash of colour.</p>
+        <div class="hero-actions mt-4">
+          <a class="btn btn-accent me-2 mb-2" href="lessons/html.html"><i class="fa-solid fa-rocket-launch me-1"></i> Start Lessons</a>
+          <a class="btn btn-outline-light mb-2" href="osp/index.html"><i class="fa-solid fa-diagram-project me-1"></i> Explore OSP</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container mb-5 position-relative content-float">
     <section class="mb-5">
       <div class="row">
         <div class="col-md-8">
-          <h2>Course Hub</h2>
+          <h2 class="section-title fancy-underline">Course Hub</h2>
           <p>Welcome to the T-Level Web Dev course. Use the links to explore lessons, exercises and the OSP walkthrough.</p>
           <div class="list-group">
             <a class="list-group-item list-group-item-action" href="lessons/html.html">HTML Fundamentals</a>
@@ -39,17 +54,17 @@
         <aside class="col-md-4">
           <h3>OSP (Occupational Set Project)</h3>
           <p>Full website build in 30 hours — planning, milestones, wireframes and a sample project plan.</p>
-          <a class="btn btn-outline-primary" href="osp/index.html">Go to OSP</a>
+          <a class="btn btn-outline-gradient" href="osp/index.html">Go to OSP</a>
         </aside>
       </div>
     </section>
 
     <section>
-      <h3>Quick Links</h3>
+      <h3 class="section-subtitle text-uppercase tracking-wide">Quick Links</h3>
       <div class="row gy-3">
         <div class="col-sm-6 col-lg-3">
-          <div class="card h-100">
-            <div class="card-body">
+          <div class="card card-chroma h-100">
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title">Exercises</h5>
               <p class="card-text">Hands-on tasks to practice the concepts.</p>
               <a href="exercises/index.html" class="stretched-link"></a>
@@ -57,8 +72,8 @@
           </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-          <div class="card h-100">
-            <div class="card-body">
+          <div class="card card-chroma h-100">
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title">Resources</h5>
               <p class="card-text">Cheatsheets, links and deployments tips.</p>
             </div>
@@ -67,8 +82,8 @@
       </div>
     </section>
   </main>
-  <footer class="bg-light py-4 mt-auto">
-    <div class="container text-center small">
+  <footer class="site-footer py-4 mt-auto small">
+    <div class="container text-center opacity-75">
       &copy; 2025 T-Level Web Dev — Built for learning.
     </div>
   </footer>
